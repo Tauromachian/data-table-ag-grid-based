@@ -1,7 +1,7 @@
 <template>
   <data-table :columnDefs="columnDefs" :rowData="rowData">
     <template v-slot:default="{ search, dense, rowAmount }">
-      <toolbar :search="search" :dense="dense" :rowAmount="rowAmount" />
+      <toolbar :search="search" :dense="dense" :rowAmount="rowAmount" :columnDefs="columnDefs"/>
     </template>
   </data-table>
 </template>

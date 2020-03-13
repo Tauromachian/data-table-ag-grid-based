@@ -58,7 +58,8 @@ export default {
   props: {
     search: String,
     dense: Boolean,
-    rowAmount: Number
+    rowAmount: Number,
+    columnDefs: Array
   },
   methods: {
     setVisibleColumns: function() {
