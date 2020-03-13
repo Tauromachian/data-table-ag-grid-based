@@ -52,7 +52,8 @@ export default {
   name: "Toolbar",
   data: () => {
     return {
-      dialog: false
+      dialog: false,
+      visibleColumns: []
     };
   },
   props: {
