@@ -1,6 +1,12 @@
 <template>
   <v-container fluid>
-    <slot :search="search" :dense="dense" :rowAmount="rowAmount" :gridOptions="gridOptions"></slot>
+    <slot
+      :search="search"
+      :dense="dense"
+      :rowAmount="rowAmount"
+      :gridOptions="gridOptions"
+      :rowHeight="rowHeight"
+    ></slot>
 
     <ag-grid-vue
       style="width: inherit; height: 500px;"
@@ -28,7 +34,7 @@ export default {
     rowData: {
       type: Array,
       required: true
-    },
+    }
   },
   data() {
     return {
@@ -37,7 +43,8 @@ export default {
       gridApi: {},
       pagination: true,
       rowAmount: 10,
-      search: "",
+      rowHeight: 48,
+      search: ""
     };
   },
 
@@ -47,6 +54,20 @@ export default {
     },
     setDense() {
       this.dense = true;
+    }
+  },
+  watch: {
+    rowAmount: function(val) {
+      this.gridApi.paginationSetPageSize(Number(val));
+    },
+    rowHeight: function(val) {
+      this.gridOptions.rowHeight = Number(val);
+      this.gridApi.resetRowHeights();
+    },
+    visibleColumns: function(val) {
+      let difference = this.columnFields.filter(x => !val.includes(x));
+      this.gridOptions.columnApi.setColumnsVisible(val, true);
+      this.gridOptions.columnApi.setColumnsVisible(difference, false);
     }
   }
 };

@@ -50,10 +50,11 @@
 <script>
 export default {
   name: "Toolbar",
-  data: () => {
+  data() {
     return {
       dialog: false,
-      visibleColumns: []
+      visibleColumns: [],
+      pageAmounts: [10, 50, 100],
     };
   },
   props: {
@@ -61,7 +62,8 @@ export default {
     dense: Boolean,
     rowAmount: Number,
     columnDefs: Array,
-    gridOptions: Object
+    gridOptions: Object,
+    rowHeight: Number
   },
   methods: {
     setVisibleColumns: function() {
@@ -86,6 +88,7 @@ export default {
     this.gridApi = this.gridOptions.api;
     this.setVisibleColumns();
     this.setColumnFields();
-  }
+  },
+  
 };
 </script>
