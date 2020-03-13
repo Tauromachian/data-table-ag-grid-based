@@ -1,7 +1,13 @@
 <template>
   <data-table :columnDefs="columnDefs" :rowData="rowData">
-    <template v-slot:default="{ search, dense, rowAmount }">
-      <toolbar :search="search" :dense="dense" :rowAmount="rowAmount" :columnDefs="columnDefs"/>
+    <template v-slot:default="{ search, dense, rowAmount, gridOptions }">
+      <toolbar
+        :search="search"
+        :dense="dense"
+        :rowAmount="rowAmount"
+        :columnDefs="columnDefs"
+        :gridOption="gridOptions"
+      />
     </template>
   </data-table>
 </template>

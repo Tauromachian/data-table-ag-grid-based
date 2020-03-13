@@ -59,7 +59,8 @@ export default {
     search: String,
     dense: Boolean,
     rowAmount: Number,
-    columnDefs: Array
+    columnDefs: Array,
+    gridOptions: Object
   },
   methods: {
     setVisibleColumns: function() {
@@ -79,6 +80,11 @@ export default {
       this.gridOptions.rowData.splice(selectedRow.index, 1);
       this.gridApi.setRowData(this.gridOptions.rowData);
     }
+  },
+  mounted() {
+    this.gridApi = this.gridOptions.api;
+    this.setVisibleColumns();
+    this.setColumnFields();
   }
 };
 </script>

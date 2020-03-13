@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <slot :search="search" :dense="dense" :rowAmount="rowAmount"></slot>
+    <slot :search="search" :dense="dense" :rowAmount="rowAmount" :gridOptions="gridOptions"></slot>
 
     <ag-grid-vue
       style="width: inherit; height: 500px;"
