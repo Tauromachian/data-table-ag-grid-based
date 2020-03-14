@@ -13,7 +13,7 @@
           :rowHeight="rowHeight"
           @update:rowHeight="setRowHeight"
           @deleteRow="deleteRow"
-          @onRowAmountChange="setRowAmount"
+          @update:rowAmount="setRowAmount"
         />
       </template>
     </data-table>

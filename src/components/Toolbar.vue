@@ -85,7 +85,7 @@ export default {
         return this.rowAmount;
       },
       set(val){
-        this.$emit("onRowAmountChange", Number(val));
+        this.$emit("update:rowAmount", Number(val));
       }
     }
   },
