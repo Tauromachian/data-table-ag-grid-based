@@ -2,7 +2,7 @@
   <v-app>
     <data-table :columnDefs="columnDefs" :rowData="rowData">
       <template
-        #default="{ search, dense, rowAmount, gridOptions, rowHeight, deleteRow, setRowHeight, setRowAmount }"
+        #default="{ search, dense, rowAmount, gridOptions, rowHeight, visibleColumns, deleteRow, setRowHeight, setRowAmount, setVisibleColumns }"
       >
         <toolbar
           :search="search"
@@ -11,6 +11,8 @@
           :columnDefs="columnDefs"
           :gridOptions="gridOptions"
           :rowHeight="rowHeight"
+          :visibleColumns="visibleColumns"
+          @update:visibleColumns="setVisibleColumns"
           @update:rowHeight="setRowHeight"
           @deleteRow="deleteRow"
           @update:rowAmount="setRowAmount"

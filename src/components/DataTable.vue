@@ -6,6 +6,8 @@
       :rowAmount="rowAmount"
       :gridOptions="gridOptions"
       :rowHeight="rowHeight"
+      :visibleColumns="visibleColumns"
+      :setVisibleColumns="changeVisibleColumns"
       :deleteRow="deleteRow"
       :setRowHeight="setRowHeight"
       :setRowAmount="setRowAmount"
@@ -47,7 +49,9 @@ export default {
       pagination: true,
       rowAmount: 10,
       rowHeight: "48",
-      search: ""
+      search: "",
+      visibleColumns: [],
+      columnFields: []
     };
   },
   mounted() {
@@ -62,6 +66,9 @@ export default {
           return element.field;
         }
       });
+    },
+    changeVisibleColumns: function(val){
+      this.visibleColumns = val;
     },
     setColumnFields: function() {
       this.columnFields = this.columnDefs.map(element => {

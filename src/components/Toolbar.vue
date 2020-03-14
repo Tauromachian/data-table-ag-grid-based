@@ -11,7 +11,7 @@
         </template>
 
         <v-card>
-          <column-select-list :columns="columnDefs" v-model="visibleColumns" />
+          <column-select-list :columns="columnDefs" v-model="setVisibleColumns" />
 
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -58,7 +58,6 @@ export default {
   data() {
     return {
       dialog: false,
-      visibleColumns: [],
       pageAmounts: [10, 50, 100],
     };
   },
@@ -68,7 +67,8 @@ export default {
     rowAmount: Number,
     columnDefs: Array,
     gridOptions: Object,
-    rowHeight: String
+    rowHeight: String,
+    visibleColumns: Array
   },
 
   computed: {
@@ -86,6 +86,14 @@ export default {
       },
       set(val){
         this.$emit("update:rowAmount", Number(val));
+      }
+    },
+    setVisibleColumns: {
+      get() {
+        return this.visibleColumns;
+      },
+      set(val) {
+        this.$emit("update:visibleColumns", val);
       }
     }
   },
