@@ -2,7 +2,7 @@
   <v-app>
     <data-table :columnDefs="columnDefs" :rowData="rowData">
       <template
-        #default="{ search, dense, rowAmount, gridOptions, rowHeight, deleteRow, setRowHeight }"
+        #default="{ search, dense, rowAmount, gridOptions, rowHeight, deleteRow, setRowHeight, setRowAmount }"
       >
         <toolbar
           :search="search"
@@ -11,8 +11,9 @@
           :columnDefs="columnDefs"
           :gridOptions="gridOptions"
           :rowHeight="rowHeight"
-          v-on:delete-row="deleteRow"
-          v-on:on-row-height-change="setRowHeight"
+          @update:rowHeight="setRowHeight"
+          @deleteRow="deleteRow"
+          @onRowAmountChange="setRowAmount"
         />
       </template>
     </data-table>
