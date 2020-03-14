@@ -1,19 +1,23 @@
 <template>
-  <data-table :columnDefs="columnDefs" :rowData="rowData">
-    <template #default="{ search, dense, rowAmount, gridOptions, rowHeight, deleteRow, setRowHeight }">
-      <div>{{ gridOptions }}</div>
-      <toolbar
-        :search="search"
-        :dense="dense"
-        :rowAmount="rowAmount"
-        :columnDefs="columnDefs"
-        :gridOptions="gridOptions"
-        :rowHeight="rowHeight"
-        @deleteRow="deleteRow"
-        @onRowHeightChange="setRowHeight"
-      />
-    </template>
-  </data-table>
+  <v-app>
+    <data-table :columnDefs="columnDefs" :rowData="rowData">
+      <template
+        #default="{ search, dense, rowAmount, gridOptions, rowHeight, deleteRow, setRowHeight }"
+      >
+        <div>{{ gridOptions }}</div>
+        <toolbar
+          :search="search"
+          :dense="dense"
+          :rowAmount="rowAmount"
+          :columnDefs="columnDefs"
+          :gridOptions="gridOptions"
+          :rowHeight="rowHeight"
+          v-on:delete-row="deleteRow"
+          v-on:on-row-height-change="setRowHeight"
+        />
+      </template>
+    </data-table>
+  </v-app>
 </template>
 
 <script>
