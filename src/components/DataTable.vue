@@ -8,6 +8,7 @@
       :rowHeight="rowHeight"
       :deleteRow="deleteRow"
       :setRowHeight="setRowHeight"
+      :setRowAmount="setRowAmount"
     ></slot>
 
     <ag-grid-vue
@@ -45,7 +46,7 @@ export default {
       gridApi: {},
       pagination: true,
       rowAmount: 10,
-      rowHeight: 48,
+      rowHeight: "48",
       search: ""
     };
   },
@@ -74,16 +75,18 @@ export default {
     },
     setRowHeight: function (val) {
       this.rowHeight = val;
+      this.gridOptions.rowHeight = Number(val);
+      this.gridApi.resetRowHeights();
+    },
+    setRowAmount: function (val) {
+      this.rowAmount = val;
     }
   },
   watch: {
     rowAmount: function(val) {
       this.gridApi.paginationSetPageSize(Number(val));
     },
-    rowHeight: function(val) {
-      this.gridOptions.rowHeight = Number(val);
-      this.gridApi.resetRowHeights();
-    },
+   
     visibleColumns: function(val) {
       let difference = this.columnFields.filter(x => !val.includes(x));
       this.gridOptions.columnApi.setColumnsVisible(val, true);

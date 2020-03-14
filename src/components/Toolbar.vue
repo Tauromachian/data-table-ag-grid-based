@@ -22,7 +22,7 @@
     </v-col>
 
     <v-col md="1">
-      <v-select v-model="rowAmount" :items="pageAmounts" label="Filas"></v-select>
+      <v-select v-model="setRowAmount" :items="pageAmounts" label="Filas"></v-select>
     </v-col>
 
     <v-col md="4">
@@ -68,7 +68,7 @@ export default {
     rowAmount: Number,
     columnDefs: Array,
     gridOptions: Object,
-    rowHeight: Number
+    rowHeight: String
   },
 
   computed: {
@@ -77,7 +77,15 @@ export default {
         return this.rowHeight;
       },
       set(val){
-        this.$emit("onRowHeightChange", val);
+        this.$emit("update:rowHeight", val);
+      }
+    },
+    setRowAmount: {
+      get(){
+        return this.rowAmount;
+      },
+      set(val){
+        this.$emit("onRowAmountChange", Number(val));
       }
     }
   },
