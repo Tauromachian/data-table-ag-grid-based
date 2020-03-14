@@ -7,6 +7,7 @@
       :gridOptions="gridOptions"
       :rowHeight="rowHeight"
       :deleteRow="deleteRow"
+      :setRowHeight="setRowHeight"
     ></slot>
 
     <ag-grid-vue
@@ -65,6 +66,9 @@ export default {
       const selectedRow = this.gridApi.getFocusedCell();
       this.gridOptions.rowData.splice(selectedRow.index, 1);
       this.gridApi.setRowData(this.gridOptions.rowData);
+    },
+    setRowHeight: function (val) {
+      this.rowHeight = val;
     }
   },
   watch: {

@@ -1,6 +1,6 @@
 <template>
   <data-table :columnDefs="columnDefs" :rowData="rowData">
-    <template #default="{ search, dense, rowAmount, gridOptions, rowHeight, deleteRow }">
+    <template #default="{ search, dense, rowAmount, gridOptions, rowHeight, deleteRow, setRowHeight }">
       <div>{{ gridOptions }}</div>
       <toolbar
         :search="search"
@@ -10,6 +10,7 @@
         :gridOptions="gridOptions"
         :rowHeight="rowHeight"
         @deleteRow="deleteRow"
+        @onRowHeightChange="setRowHeight"
       />
     </template>
   </data-table>
