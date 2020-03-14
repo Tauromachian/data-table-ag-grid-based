@@ -4,7 +4,6 @@
       <template
         #default="{ search, dense, rowAmount, gridOptions, rowHeight, deleteRow, setRowHeight }"
       >
-        <div>{{ gridOptions }}</div>
         <toolbar
           :search="search"
           :dense="dense"

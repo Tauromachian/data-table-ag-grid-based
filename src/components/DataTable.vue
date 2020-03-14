@@ -49,6 +49,11 @@ export default {
       search: ""
     };
   },
+  mounted() {
+    this.gridApi = this.gridOptions.api;
+    this.setVisibleColumns();
+    this.setColumnFields();
+  },
   methods: {
     setVisibleColumns: function() {
       this.visibleColumns = this.columnDefs.map(element => {

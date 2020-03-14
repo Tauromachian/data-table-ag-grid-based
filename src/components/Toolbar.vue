@@ -70,12 +70,6 @@ export default {
     gridOptions: Object,
     rowHeight: Number
   },
-  
-  mounted() {
-    this.gridApi = this.gridOptions.api;
-    this.setVisibleColumns();
-    this.setColumnFields();
-  },
 
   computed: {
     setRowHeight:{
