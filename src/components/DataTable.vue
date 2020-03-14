@@ -6,6 +6,7 @@
       :rowAmount="rowAmount"
       :gridOptions="gridOptions"
       :rowHeight="rowHeight"
+      :deleteRow="deleteRow"
     ></slot>
 
     <ag-grid-vue
@@ -47,13 +48,23 @@ export default {
       search: ""
     };
   },
-
   methods: {
-    setNoDense() {
-      this.dense = false;
+    setVisibleColumns: function() {
+      this.visibleColumns = this.columnDefs.map(element => {
+        if (this.gridOptions.columnApi.getColumn(element.field).visible) {
+          return element.field;
+        }
+      });
     },
-    setDense() {
-      this.dense = true;
+    setColumnFields: function() {
+      this.columnFields = this.columnDefs.map(element => {
+        return element.field;
+      });
+    },
+    deleteRow: function() {
+      const selectedRow = this.gridApi.getFocusedCell();
+      this.gridOptions.rowData.splice(selectedRow.index, 1);
+      this.gridApi.setRowData(this.gridOptions.rowData);
     }
   },
   watch: {

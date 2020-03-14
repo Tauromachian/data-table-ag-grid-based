@@ -1,6 +1,7 @@
 <template>
   <data-table :columnDefs="columnDefs" :rowData="rowData">
-    <template v-slot:default="{ search, dense, rowAmount, gridOptions, rowHeight }">
+    <template #default="{ search, dense, rowAmount, gridOptions, rowHeight, deleteRow }">
+      <div>{{ gridOptions }}</div>
       <toolbar
         :search="search"
         :dense="dense"
@@ -8,6 +9,7 @@
         :columnDefs="columnDefs"
         :gridOptions="gridOptions"
         :rowHeight="rowHeight"
+        @deleteRow="deleteRow"
       />
     </template>
   </data-table>

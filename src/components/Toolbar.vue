@@ -65,30 +65,16 @@ export default {
     gridOptions: Object,
     rowHeight: Number
   },
-  methods: {
-    setVisibleColumns: function() {
-      this.visibleColumns = this.columnDefs.map(element => {
-        if (this.gridOptions.columnApi.getColumn(element.field).visible) {
-          return element.field;
-        }
-      });
-    },
-    setColumnFields: function() {
-      this.columnFields = this.columnDefs.map(element => {
-        return element.field;
-      });
-    },
-    deleteRow: function() {
-      const selectedRow = this.gridApi.getFocusedCell();
-      this.gridOptions.rowData.splice(selectedRow.index, 1);
-      this.gridApi.setRowData(this.gridOptions.rowData);
-    }
-  },
+  
   mounted() {
     this.gridApi = this.gridOptions.api;
     this.setVisibleColumns();
     this.setColumnFields();
   },
-  
+  methods: {
+    deleteRow(){
+      this.$emit("deleteRow");
+    }
+  }
 };
 </script>
