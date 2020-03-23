@@ -14,8 +14,8 @@
     >
       <toolbar
         :search.sync="search"
+        :rowAmount.sync="rowAmount"
         :dense="dense"
-        :rowAmount="rowAmount"
         :columnDefs="columnDefs"
         :gridOptions="gridOptions"
         :rowHeight="rowHeight"
@@ -23,7 +23,6 @@
         @update:visibleColumns="setVisibleColumns"
         @update:rowHeight="setRowHeight"
         @deleteRow="deleteRow"
-        @update:rowAmount="setRowAmount"
       />
     </slot>
 
