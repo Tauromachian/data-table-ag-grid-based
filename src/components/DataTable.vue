@@ -11,7 +11,9 @@
       :deleteRow="deleteRow"
       :setRowHeight="setRowHeight"
       :setRowAmount="setRowAmount"
-    ></slot>
+    >
+
+    </slot>
 
     <ag-grid-vue
       style="width: inherit; height: 500px;"
@@ -77,7 +79,7 @@ export default {
     },
     deleteRow: function() {
       const selectedRow = this.gridApi.getFocusedCell();
-      this.gridOptions.rowData.splice(selectedRow.index, 1);
+      this.gridOptions.rowData.splice(selectedRow.rowIndex, 1);
       this.gridApi.setRowData(this.gridOptions.rowData);
     },
     setRowHeight: function (val) {
