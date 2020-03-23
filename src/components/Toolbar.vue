@@ -27,7 +27,7 @@
 
     <v-col md="4">
       <v-text-field
-        v-model="search"
+        v-model="doSearch"
         label="Buscar"
         single-line
         hide-details
@@ -94,6 +94,14 @@ export default {
       },
       set(val) {
         this.$emit("update:visibleColumns", val);
+      }
+    },
+    doSearch: {
+      get(){
+        return this.search;
+      },
+      set(val){
+        this.$emit("update:search", val);
       }
     }
   },

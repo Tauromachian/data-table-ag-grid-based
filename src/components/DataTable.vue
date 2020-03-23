@@ -20,6 +20,7 @@
         :gridOptions="gridOptions"
         :rowHeight="rowHeight"
         :visibleColumns="visibleColumns"
+        @update:search="doSearch"
         @update:visibleColumns="setVisibleColumns"
         @update:rowHeight="setRowHeight"
         @deleteRow="deleteRow"
@@ -119,6 +120,9 @@ export default {
     },
     setRowAmount: function(val) {
       this.rowAmount = val;
+    },
+    doSearch: function (val) {
+      this.search = val;
     }
   },
   watch: {
