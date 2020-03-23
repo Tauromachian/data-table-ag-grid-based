@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col md="2">
-      <v-btn @click="deleteRow">Borrar columna</v-btn>
+      <v-btn @click="deleteRow">Borrar fila</v-btn>
     </v-col>
 
     <v-col md="2">
