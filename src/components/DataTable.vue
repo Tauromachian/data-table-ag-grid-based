@@ -11,9 +11,7 @@
       :deleteRow="deleteRow"
       :setRowHeight="setRowHeight"
       :setRowAmount="setRowAmount"
-    >
-
-    </slot>
+    ></slot>
 
     <ag-grid-vue
       style="width: inherit; height: 500px;"
@@ -69,7 +67,7 @@ export default {
         }
       });
     },
-    changeVisibleColumns: function(val){
+    changeVisibleColumns: function(val) {
       this.visibleColumns = val;
     },
     setColumnFields: function() {
@@ -82,12 +80,12 @@ export default {
       this.gridOptions.rowData.splice(selectedRow.rowIndex, 1);
       this.gridApi.setRowData(this.gridOptions.rowData);
     },
-    setRowHeight: function (val) {
+    setRowHeight: function(val) {
       this.rowHeight = val;
       this.gridOptions.rowHeight = Number(val);
       this.gridApi.resetRowHeights();
     },
-    setRowAmount: function (val) {
+    setRowAmount: function(val) {
       this.rowAmount = val;
     }
   },
@@ -95,7 +93,7 @@ export default {
     rowAmount: function(val) {
       this.gridApi.paginationSetPageSize(Number(val));
     },
-   
+
     visibleColumns: function(val) {
       let difference = this.columnFields.filter(x => !val.includes(x));
       this.gridOptions.columnApi.setColumnsVisible(val, true);
@@ -104,3 +102,13 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.ag-row {
+  .ag-cell,
+  .ag-cell .ag-icon {
+    display: flex;
+    align-items: center;
+  }
+}
+</style>
