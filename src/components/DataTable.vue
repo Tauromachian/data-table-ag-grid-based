@@ -31,6 +31,12 @@
 export default {
   name: "DataTable",
   props: {
+    width: {
+      type: Number 
+    },
+    height: {
+      type: Number
+    },
     defaultColDef: Object,
     columnDefs: {
       type: Array,
