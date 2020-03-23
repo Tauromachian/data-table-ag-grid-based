@@ -2,7 +2,6 @@
   <v-container fluid>
     <slot
       :search="search"
-      :dense="dense"
       :rowAmount="rowAmount"
       :gridOptions="gridOptions"
       :rowHeight="rowHeight"
@@ -15,7 +14,6 @@
       <toolbar
         :search.sync="search"
         :rowAmount.sync="rowAmount"
-        :dense="dense"
         :columnDefs="columnDefs"
         :gridOptions="gridOptions"
         :rowHeight="rowHeight"
@@ -69,7 +67,6 @@ export default {
   },
   data() {
     return {
-      dense: false,
       gridOptions: {},
       gridApi: {},
       pagination: true,
