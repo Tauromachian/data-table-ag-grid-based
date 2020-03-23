@@ -13,14 +13,13 @@
       :setRowAmount="setRowAmount"
     >
       <toolbar
-        :search="search"
+        :search.sync="search"
         :dense="dense"
         :rowAmount="rowAmount"
         :columnDefs="columnDefs"
         :gridOptions="gridOptions"
         :rowHeight="rowHeight"
         :visibleColumns="visibleColumns"
-        @update:search="doSearch"
         @update:visibleColumns="setVisibleColumns"
         @update:rowHeight="setRowHeight"
         @deleteRow="deleteRow"
