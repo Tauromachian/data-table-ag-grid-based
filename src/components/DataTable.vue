@@ -11,10 +11,24 @@
       :deleteRow="deleteRow"
       :setRowHeight="setRowHeight"
       :setRowAmount="setRowAmount"
-    ></slot>
+    >
+      <toolbar
+        :search="search"
+        :dense="dense"
+        :rowAmount="rowAmount"
+        :columnDefs="columnDefs"
+        :gridOptions="gridOptions"
+        :rowHeight="rowHeight"
+        :visibleColumns="visibleColumns"
+        @update:visibleColumns="setVisibleColumns"
+        @update:rowHeight="setRowHeight"
+        @deleteRow="deleteRow"
+        @update:rowAmount="setRowAmount"
+      />
+    </slot>
 
     <ag-grid-vue
-      style="width: inherit; height: 500px;"
+      :style="style"
       class="ag-theme-material"
       :defaultColDef="defaultColDef"
       :columnDefs="columnDefs"
@@ -28,14 +42,21 @@
 </template>
 
 <script>
+import Toolbar from "./Toolbar";
 export default {
   name: "DataTable",
+
+  components: {
+    Toolbar
+  },
   props: {
     width: {
-      type: Number 
+      type: [Number, String],
+      default: 'inherit'
     },
     height: {
-      type: Number
+      type: [Number, String],
+      default: 500
     },
     defaultColDef: Object,
     columnDefs: {
@@ -59,6 +80,11 @@ export default {
       visibleColumns: [],
       columnFields: []
     };
+  },
+  computed:{
+    style(){
+      return `width: ${this.width}; height: ${this.height}px;`
+    }
   },
   mounted() {
     this.gridApi = this.gridOptions.api;
