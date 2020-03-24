@@ -40,6 +40,7 @@
 
 <script>
 import Toolbar from "./Toolbar";
+
 export default {
   name: "DataTable",
 
@@ -105,8 +106,10 @@ export default {
     },
     deleteRow: function() {
       const selectedRow = this.gridApi.getFocusedCell();
-      this.gridOptions.rowData.splice(selectedRow.rowIndex, 1);
-      this.gridApi.setRowData(this.gridOptions.rowData);
+      if (selectedRow) {
+        this.gridOptions.rowData.splice(selectedRow.rowIndex, 1);
+        this.gridApi.setRowData(this.gridOptions.rowData);
+      }
     },
     setRowHeight: function(val) {
       this.rowHeight = val;
