@@ -14,8 +14,8 @@
       <toolbar
         :search.sync="search"
         :rowAmount.sync="rowAmount"
+
         :columnDefs="columnDefs"
-        :gridOptions="gridOptions"
         :rowHeight="rowHeight"
         :visibleColumns="visibleColumns"
         @update:visibleColumns="setVisibleColumns"

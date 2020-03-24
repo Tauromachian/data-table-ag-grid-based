@@ -66,7 +66,6 @@ export default {
     dense: Boolean,
     rowAmount: Number,
     columnDefs: Array,
-    gridOptions: Object,
     rowHeight: String,
     visibleColumns: Array
   },
