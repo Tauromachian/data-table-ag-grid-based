@@ -10,6 +10,7 @@
       :deleteRow="deleteRow"
       :setRowHeight="setRowHeight"
       :setRowAmount="setRowAmount"
+      :doSearch="doSearch"
     >
       <toolbar
         :search.sync="search"
