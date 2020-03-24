@@ -18,7 +18,7 @@
         :columnDefs="columnDefs"
         :rowHeight="rowHeight"
         :visibleColumns="visibleColumns"
-        @update:visibleColumns="setVisibleColumns"
+        @update:visibleColumns="changeVisibleColumns"
         @update:rowHeight="setRowHeight"
         @deleteRow="deleteRow"
       />
