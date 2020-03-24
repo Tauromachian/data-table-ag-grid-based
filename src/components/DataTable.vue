@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import Toolbar from "./Toolbar";
+import Toolbar from "@/components/Toolbar";
 
 export default {
   name: "DataTable",

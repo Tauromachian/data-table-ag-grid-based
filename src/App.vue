@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import DataTable from "./components/DataTable";
-import Toolbar from "./components/Toolbar";
+import DataTable from "@/components/DataTable";
+import Toolbar from "@/components/Toolbar";
 
 export default {
   name: "App",
