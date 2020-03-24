@@ -14,11 +14,10 @@
       <toolbar
         :search.sync="search"
         :rowAmount.sync="rowAmount"
+        :visibleColumns.sync="visibleColumns"
 
         :columnDefs="columnDefs"
         :rowHeight="rowHeight"
-        :visibleColumns="visibleColumns"
-        @update:visibleColumns="changeVisibleColumns"
         @update:rowHeight="setRowHeight"
         @deleteRow="deleteRow"
       />
