@@ -63,7 +63,6 @@ export default {
   },
   props: {
     search: String,
-    dense: Boolean,
     rowAmount: Number,
     columnDefs: Array,
     rowHeight: String,
