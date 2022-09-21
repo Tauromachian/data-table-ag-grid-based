@@ -26,7 +26,7 @@
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-property-decorator": "^8.4.0",
-    "vuetify": "^2.2.11"
+    "vuetify": "^2.6.10"
   },
   "devDependencies": {
     "rollup": "^1.17.0",
